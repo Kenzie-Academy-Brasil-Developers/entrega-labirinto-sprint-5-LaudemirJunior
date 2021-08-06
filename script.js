@@ -53,7 +53,7 @@ box.classList.add("box");
 start.appendChild(box);
 document.querySelector(".box");
 
-function procurara() {
+function procurar() {
   for (let i = 0; i < map.length; i++) {
     for (let j = 0; j < map[i].length; j++) {
       if (map[i][j] === "S") {
@@ -66,7 +66,7 @@ function procurara() {
 let boxTop = 0;
 let boxLeft = 0;
 
-let jogador = procurara();
+let jogador = procurar();
 let jogadaAtual = jogador[0];
 let jogadaDestino = jogador[1];
 
@@ -77,29 +77,45 @@ document.addEventListener("keydown", (event) => {
       jogadaDestino += 1;
       boxLeft += 50;
       box.style.left = boxLeft + "px";
+      box.style.backgroundImage = "url(ghost.png)";
     } else if (map[jogadaAtual][jogadaDestino + 1] === "F") {
       jogadaDestino += 1;
       boxLeft += 50;
       box.style.left = boxLeft + "px";
       alert("Parabéns!!! Você escapou dos monstros!");
+      // let win = document.createElement("div");
+      // win.classList = "win";
+      // container.appendChild(win);
+      // box.style.backgroundImage = "url(ghost.png)";
+    } else if (map[jogadaAtual][jogadaDestino + 1] === "W") {
+      box.style.backgroundImage = "url(zombie.png)";
     }
   } else if (keyName === "ArrowLeft") {
     if (map[jogadaAtual][jogadaDestino - 1] === " ") {
       jogadaDestino -= 1;
       boxLeft -= 50;
       box.style.left = boxLeft + "px";
+      box.style.backgroundImage = "url(ghost.png)";
+    } else if (map[jogadaAtual][jogadaDestino - 1] === "W") {
+      box.style.backgroundImage = "url(zombie.png)";
     }
   } else if (keyName === "ArrowUp") {
     if (map[jogadaAtual - 1][jogadaDestino] === " ") {
       jogadaAtual -= 1;
       boxTop -= 50;
       box.style.top = boxTop + "px";
+      box.style.backgroundImage = "url(ghost.png)";
+    } else if (map[jogadaAtual + 1][jogadaDestino] === "W") {
+      box.style.backgroundImage = "url(zombie.png)";
     }
   } else if (keyName === "ArrowDown") {
     if (map[jogadaAtual + 1][jogadaDestino] === " ") {
       jogadaAtual += 1;
       boxTop += 50;
       box.style.top = boxTop + "px";
+      box.style.backgroundImage = "url(ghost.png)";
+    } else if (map[jogadaAtual + 1][jogadaDestino] === "W") {
+      box.style.backgroundImage = "url(zombie.png)";
     }
   }
 });

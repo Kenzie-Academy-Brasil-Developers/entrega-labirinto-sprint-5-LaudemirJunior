@@ -8,21 +8,21 @@ Este JavaScript representa o labirinto descrito acima. Cada "W" representa uma p
 
 ```js
 const map = [
-    "WWWWWWWWWWWWWWWWWWWWW",
-    "W   W     W     W W W",
-    "W W W WWW WWWWW W W W",
-    "W W W   W     W W   W",
-    "W WWWWWWW W WWW W W W",
-    "W         W     W W W",
-    "W WWW WWWWW WWWWW W W",
-    "W W   W   W W     W W",
-    "W WWWWW W W W WWW W F",
-    "S     W W W W W W WWW",
-    "WWWWW W W W W W W W W",
-    "W     W W W   W W W W",
-    "W WWWWWWW WWWWW W W W",
-    "W       W       W   W",
-    "WWWWWWWWWWWWWWWWWWWWW",
+  "WWWWWWWWWWWWWWWWWWWWW",
+  "W   W     W     W W W",
+  "W W W WWW WWWWW W W W",
+  "W W W   W     W W   W",
+  "W WWWWWWW W WWW W W W",
+  "W         W     W W W",
+  "W WWW WWWWW WWWWW W W",
+  "W W   W   W W     W W",
+  "W WWWWW W W W WWW W F",
+  "S     W W W W W W WWW",
+  "WWWWW W W W W W W W W",
+  "W     W W W   W W W W",
+  "W WWWWWWW WWWWW W W W",
+  "W       W       W   W",
+  "WWWWWWWWWWWWWWWWWWWWW",
 ];
 ```
 
@@ -55,15 +55,20 @@ Você pode criar classes com animações CSS3 associadas representando as direç
 
 ```css
 @keyframes slideRight {
-from {margin-left: -33px;}
-to {margin-left: 0;}
+  from {
+    margin-left: -33px;
+  }
+  to {
+    margin-left: 0;
+  }
 }
-.slideRight {animation-name: slideRight;}
+.slideRight {
+  animation-name: slideRight;
+}
 ```
- 
+
 Você pode precisar remover a classe associada à animação anterior antes de poder adicioná-la de volta e executá-la novamente. Você pode achar útil usar [window.setTimeout](https://www.w3schools.com/jsref/met_win_settimeout.asp) para especificar uma função para remover as classes de animação (depois de permitir um timeout suficiente para que a animação seja concluída).
 
 ## Envio
 
 Faça o push do código para o seu repositório GitHub e implemente-o GitHub pages. No Canvas, por favor, envie sua url do GitHub Pages: (ex: https://nomedeusuario.github.io/labirinto) e envie o link do seu repositório nos comentários. Após ser a correção, seu projeto deverá ficar privado.
-
