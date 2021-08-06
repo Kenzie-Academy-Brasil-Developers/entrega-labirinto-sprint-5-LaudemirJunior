@@ -73,8 +73,10 @@ h1 {
 .win {
   display: none;
   position: absolute;
-  top: 40%;
-  left: 40%;
+  top: 50%;
+  left: 50%;
+  margin-left: -140px;
+  margin-top: -200px;
   width: 300px;
   height: 200px;
 }
@@ -89,10 +91,11 @@ h1 {
 
 .reset {
   position: relative;
-  height: 30px;
+  height: 50px;
   width: 100px;
   top: 100%;
-  right: 50%;
+  left: 50%;
+  margin-left: -310px;
   background-color: yellow;
   border: 2px solid yellow;
   color: purple;
