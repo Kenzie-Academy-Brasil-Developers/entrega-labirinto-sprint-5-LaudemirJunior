@@ -67,55 +67,80 @@ let boxTop = 0;
 let boxLeft = 0;
 
 let jogador = procurar();
-let jogadaAtual = jogador[0];
-let jogadaDestino = jogador[1];
+
+const hit = new Audio();
+hit.src = "hit.wav";
+hit.volume = 0.15;
+
+const end = new Audio();
+end.src = "end.wav";
+end.volume = 0.15;
+
+const step = new Audio();
+step.src = "step.wav";
+step.volume = 0.15;
+
+let but = document.querySelector(".but");
+let cont = document.querySelector(".win");
 
 document.addEventListener("keydown", (event) => {
   const keyName = event.key;
   if (keyName === "ArrowRight") {
-    if (map[jogadaAtual][jogadaDestino + 1] === " ") {
-      jogadaDestino += 1;
+    if (map[jogador[0]][jogador[1] + 1] === " ") {
+      jogador[1] += 1;
       boxLeft += 50;
       box.style.left = boxLeft + "px";
       box.style.backgroundImage = "url(ghost.png)";
-    } else if (map[jogadaAtual][jogadaDestino + 1] === "F") {
-      jogadaDestino += 1;
+      step.play();
+    } else if (map[jogador[0]][jogador[1] + 1] === "F") {
+      jogador[1] += 1;
       boxLeft += 50;
+      end.play();
       box.style.left = boxLeft + "px";
-      alert("Parabéns!!! Você escapou dos monstros!");
-      // let win = document.createElement("div");
-      // win.classList = "win";
-      // container.appendChild(win);
-      // box.style.backgroundImage = "url(ghost.png)";
-    } else if (map[jogadaAtual][jogadaDestino + 1] === "W") {
+      cont.style.display = "flex";
+      box.style.backgroundImage = "url(ghost.png)";
+    } else if (map[jogador[0]][jogador[1] + 1] === "W") {
       box.style.backgroundImage = "url(zombie.png)";
+      hit.play();
     }
   } else if (keyName === "ArrowLeft") {
-    if (map[jogadaAtual][jogadaDestino - 1] === " ") {
-      jogadaDestino -= 1;
+    if (map[jogador[0]][jogador[1] - 1] === " ") {
+      jogador[1] -= 1;
       boxLeft -= 50;
       box.style.left = boxLeft + "px";
       box.style.backgroundImage = "url(ghost.png)";
-    } else if (map[jogadaAtual][jogadaDestino - 1] === "W") {
+      step.play();
+    } else if (map[jogador[0]][jogador[1] - 1] === "W") {
       box.style.backgroundImage = "url(zombie.png)";
+      hit.play();
     }
   } else if (keyName === "ArrowUp") {
-    if (map[jogadaAtual - 1][jogadaDestino] === " ") {
-      jogadaAtual -= 1;
+    if (map[jogador[0] - 1][jogador[1]] === " ") {
+      jogador[0] -= 1;
       boxTop -= 50;
       box.style.top = boxTop + "px";
       box.style.backgroundImage = "url(ghost.png)";
-    } else if (map[jogadaAtual + 1][jogadaDestino] === "W") {
+      step.play();
+    } else if (map[jogador[0] + 1][jogador[1]] === "W") {
       box.style.backgroundImage = "url(zombie.png)";
+      hit.play();
     }
   } else if (keyName === "ArrowDown") {
-    if (map[jogadaAtual + 1][jogadaDestino] === " ") {
-      jogadaAtual += 1;
+    if (map[jogador[0] + 1][jogador[1]] === " ") {
+      jogador[0] += 1;
       boxTop += 50;
       box.style.top = boxTop + "px";
+      step.play();
       box.style.backgroundImage = "url(ghost.png)";
-    } else if (map[jogadaAtual + 1][jogadaDestino] === "W") {
+    } else if (map[jogador[0] + 1][jogador[1]] === "W") {
       box.style.backgroundImage = "url(zombie.png)";
+      hit.play();
     }
+  }
+});
+
+but.addEventListener("click", function () {
+  if (cont.style.display === "flex") {
+    cont.style.display = "none";
   }
 });
