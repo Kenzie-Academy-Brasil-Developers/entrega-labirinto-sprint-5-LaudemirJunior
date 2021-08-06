@@ -63,8 +63,8 @@ function procurara() {
   }
 }
 
-let boxTop = null;
-let boxLeft = null;
+let boxTop = 0;
+let boxLeft = 0;
 
 let jogador = procurara();
 let jogadaAtual = jogador[0];
@@ -81,7 +81,7 @@ document.addEventListener("keydown", (event) => {
       jogadaDestino += 1;
       boxLeft += 50;
       box.style.left = boxLeft + "px";
-      alert("Você chegou ao fim!!");
+      alert("Parabéns!!! Você escapou dos monstros!");
     }
   } else if (keyName === "ArrowLeft") {
     if (map[jogadaAtual][jogadaDestino - 1] === " ") {
