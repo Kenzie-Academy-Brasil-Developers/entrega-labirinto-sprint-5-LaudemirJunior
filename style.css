@@ -86,3 +86,17 @@ h1 {
   top: -40%;
   right: -80%;
 }
+
+.reset {
+  position: relative;
+  height: 30px;
+  width: 100px;
+  top: 100%;
+  right: 50%;
+  background-color: yellow;
+  border: 2px solid yellow;
+  color: purple;
+  font-weight: 900;
+  border-radius: 10px;
+  cursor: pointer;
+}

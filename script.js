@@ -8,7 +8,7 @@ const map = [
   "W WWW WWWWW WWWWW W W",
   "W W   W   W W     W W",
   "W WWWWW W W W WWW W F",
-  "S     W W W W W W WWW",
+  "S       W W W W W WWW",
   "WWWWW W W W W W W W W",
   "W     W W W   W W W W",
   "W WWWWWWW WWWWW W W W",
@@ -63,8 +63,8 @@ function procurar() {
   }
 }
 
-let boxTop = 0;
-let boxLeft = 0;
+let boxTop = null;
+let boxLeft = null;
 
 let jogador = procurar();
 
@@ -143,4 +143,15 @@ but.addEventListener("click", function () {
   if (cont.style.display === "flex") {
     cont.style.display = "none";
   }
+});
+
+const resetar = document.querySelector(".reset");
+
+resetar.addEventListener("click", function () {
+  cont.style.display = "none";
+  jogador = procurar();
+  boxLeft = 0;
+  box.style.left = boxLeft + "px";
+  boxTop = 0;
+  box.style.top = boxTop + "px";
 });
